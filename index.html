@@ -5,9 +5,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SortTables</title>
+    <link rel="stylesheet" href="./Styles/CSS/normalize.css">
+    <link rel="stylesheet" href="./Styles/SCSS/main.css">
 </head>
 <body>
-
-    <script src="main.js"></script>
+    <div class="wrapper">
+        <div class="left-side">
+            <aside class="left-side__body">
+                <div class="bait">Click here to open the edit form</div>
+                <form method="post" action="" class="form">
+                    <label for="input" class="input__label">Change value:
+                        <input type="text" id="input" class="input">
+                    </label>
+                    <label for="textarea" class="textarea__label">Change value:
+                        <textarea id="textarea" class="textarea"></textarea>
+                    </label>
+                    <input type="button" class="apply" value="Apply">
+                    <input type="button" class="cancel" value="Cancel">
+                </form>
+            </aside>
+        </div>
+        <div class="right-side">
+            <table>
+                <colgroup>
+                    <col class="column">
+                    <col class="column">
+                    <col class="column">
+                    <col class="column">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <div class="header">
+                                <button type="button" id="sort-0" class="sort">Sort</button>
+                                <button type="button" id="hider-0" class="hider">Hide</button>
+                            </div>
+                            <p>Firstname</p>
+                        </th>
+                        <th scope="col">
+                            <div class="header">
+                                <button type="button" id="sort-1" class="sort">Sort</button>
+                                <button type="button" id="hider-1" class="hider">Hide</button>
+                            </div>
+                            <p>Lastname</p>
+                        </th>
+                        <th scope="col">
+                            <div class="header">
+                                <button type="button" id="sort-2" class="sort">Sort</button>
+                                <button type="button" id="hider-2" class="hider">Hide</button>
+                            </div>
+                            <p>About</p>
+                        </th>
+                        <th scope="col">
+                            <div class="header">
+                                <button type="button" id="sort-3" class="sort">Sort</button>
+                                <button type="button" id="hider-3" class="hider">Hide</button>
+                            </div>
+                            <p>Eye color</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-1"></tr>
+                    <tr class="row-2"></tr>
+                    <tr class="row-3"></tr>
+                    <tr class="row-4"></tr>
+                    <tr class="row-5"></tr>
+                    <tr class="row-6"></tr>
+                    <tr class="row-7"></tr>
+                    <tr class="row-8"></tr>
+                    <tr class="row-9"></tr>
+                    <tr class="row-10"></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <div class="page-controllers">
+                                <button type="button" class="page-controllers__back"><</button>
+                                <div class="page-controllers__pages"></div>
+                                <button type="button" class="page-controllers__forward">></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

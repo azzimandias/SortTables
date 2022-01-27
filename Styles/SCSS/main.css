@@ -1,0 +1,150 @@
+body {
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+/*button {
+  background-color: inherit;
+  color: inherit;
+}*/
+p {
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 18px auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+thead, tbody, tfoot, th, tr, td {
+  padding: 5px;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+table thead tr {
+  max-height: 80px;
+}
+
+th {
+  min-width: 100px;
+  max-height: 100px;
+  position: relative;
+}
+
+td {
+  min-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  top: 5%;
+  right: 5px;
+}
+
+.about {
+  padding: 0 5px;
+  text-align: justify;
+}
+
+.about__body {
+  display: flex;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.about__text {
+  height: 40px;
+  overflow: hidden;
+}
+
+.about__ellipsis {
+  margin: 0;
+  padding-top: 20px;
+}
+
+tbody td:hover {
+  background-color: azure;
+  outline: 4px solid black;
+  transition: background-color 0.2s, outline 0.1s;
+}
+
+tbody td:active {
+  background-color: bisque;
+}
+
+.page-controllers {
+  display: flex;
+  border: none;
+}
+
+@keyframes hide {
+  from {
+    width: inherit;
+  }
+  to {
+    width: 0;
+  }
+}
+.hide {
+  font-size: 0;
+  padding: 0;
+  transition: 0.3s;
+  animation: hide 0.5s ease-out forwards;
+}
+
+tbody td.selected {
+  transition: 0.1s;
+  background-color: wheat;
+  outline: 4px solid black;
+}
+
+.left-side {
+  width: 100%;
+  height: 100%;
+}
+
+.bait {
+  display: inline-block;
+}
+
+.form {
+  display: none;
+}
+
+.input__label {
+  display: none;
+}
+
+.input {
+  display: inherit;
+}
+
+.textarea__label {
+  display: none;
+}
+
+.textarea {
+  display: inherit;
+}
+
+.visible {
+  display: block;
+}
+
+/*# sourceMappingURL=main.css.map */
