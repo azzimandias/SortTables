@@ -4,11 +4,12 @@ export default class ChooseAndSort {
         this.sortedArray = 0;
     }
 
-    choose(data, idx) {
+    chooseAction(data, idx, event) {
         if (this.currentColumn !== idx) {
             this.currentColumn = idx;
             this.goSortA_Z = true;
-            return this.choose(data, idx);
+            event.target.title = 'sort from Z to A';
+            return this.chooseAction(data, idx);
         } else {
             if (this.goSortA_Z) {
                 this.goSortA_Z = false;
@@ -16,10 +17,12 @@ export default class ChooseAndSort {
                 return this.sortedArray = this.sortA_Z(data, idx);
             } else if (this.goSortZ_A) {
                 this.goSortZ_A = false;
+                event.target.title = 'disable sorting ';
                 return this.sortedArray = this.sortZ_A(data, idx);
             } else {
                 this.currentColumn = -1;
                 this.sortedArray = 0;
+                event.target.title = 'sort from A to Z';
                 return data;
             }
         }

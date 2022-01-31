@@ -7,83 +7,110 @@
     <title>SortTables</title>
     <link rel="stylesheet" href="./Styles/CSS/normalize.css">
     <link rel="stylesheet" href="./Styles/SCSS/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
         <div class="left-side">
             <aside class="left-side__body">
-                <div class="bait">Click here to open the edit form</div>
-                <form method="post" action="" class="form">
-                    <label for="input" class="input__label">Change value:
-                        <input type="text" id="input" class="input">
-                    </label>
-                    <label for="textarea" class="textarea__label">Change value:
-                        <textarea id="textarea" class="textarea"></textarea>
-                    </label>
-                    <input type="button" class="apply" value="Apply">
-                    <input type="button" class="cancel" value="Cancel">
-                </form>
+                <p tabindex="0" class="bait">Click here to open the edit form</p>
+                <div class="form__body">
+                    <form method="post" action="" class="form ">
+                        <div class="container">
+                            <label for="input" class="input__label">Change value:
+                                <input type="text" id="input" class="input">
+                            </label>
+                            <label for="textarea" class="textarea__label ">Change value:
+                                <div class="textarea__body">
+                                    <textarea cols="30" rows="7" id="textarea" class="textarea"></textarea>
+                                </div>
+                            </label>
+                            <div class="form__buttons">
+                                <input type="button" class="apply" value="Apply">
+                                <input type="button" class="cancel" value="Cancel">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </aside>
         </div>
         <div class="right-side">
-            <table>
-                <colgroup>
-                    <col class="column">
-                    <col class="column">
-                    <col class="column">
-                    <col class="column">
+            <table class="info-table">
+                <colgroup class="info-table__columns">
+                    <col id="column-0" class="column-firstname column">
+                    <col id="column-1" class="column-lastname column">
+                    <col id="column-2" class="column-about">
+                    <col id="column-3" class="column-eye-color column">
                 </colgroup>
-                <thead>
-                    <tr>
-                        <th scope="col">
+                <thead class="info-table__head">
+                    <tr class="info-table__head-row">
+                        <th scope="col" class="info-table__header">
                             <div class="header">
-                                <button type="button" id="sort-0" class="sort">Sort</button>
-                                <button type="button" id="hider-0" class="hider">Hide</button>
+                                <p class="header__text">Firstname</p>
+                                <div class="header__sort">
+                                    <button type="button" title="sort from A to Z" id="sort-0" class="sort"></button>
+                                </div>
+                                <div class="header__hider">
+                                    <button type="button" title="hide column" id="hider-0" class="hider"></button>
+                                </div>
                             </div>
-                            <p>Firstname</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" class="info-table__header">
                             <div class="header">
-                                <button type="button" id="sort-1" class="sort">Sort</button>
-                                <button type="button" id="hider-1" class="hider">Hide</button>
+                                <p class="header__text">Lastname</p>
+                                <div class="header__sort">
+                                    <button type="button" title="sort from A to Z" id="sort-1" class="sort"></button>
+                                </div>
+                                <div class="header__hider">
+                                    <button type="button" title="hide column" id="hider-1" class="hider"></button>
+                                </div>
                             </div>
-                            <p>Lastname</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" class="info-table__header">
                             <div class="header">
-                                <button type="button" id="sort-2" class="sort">Sort</button>
-                                <button type="button" id="hider-2" class="hider">Hide</button>
+                                <p class="header__text">About</p>
+                                <div class="header__sort">
+                                    <button type="button" title="sort from A to Z" id="sort-2" class="sort"></button>
+                                </div>
+                                <div class="header__hider">
+                                    <button type="button" title="hide column" id="hider-2" class="hider"></button>
+                                </div>
                             </div>
-                            <p>About</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" class="info-table__header">
                             <div class="header">
-                                <button type="button" id="sort-3" class="sort">Sort</button>
-                                <button type="button" id="hider-3" class="hider">Hide</button>
+                                <p class="header__text">Eye color</p>
+                                <div class="header__sort">
+                                    <button type="button" title="sort from A to Z" id="sort-3" class="sort"></button>
+                                </div>
+                                <div class="header__hider">
+                                    <button type="button" title="hide column" id="hider-3" class="hider"></button>
+                                </div>
                             </div>
-                            <p>Eye color</p>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="row-1"></tr>
-                    <tr class="row-2"></tr>
-                    <tr class="row-3"></tr>
-                    <tr class="row-4"></tr>
-                    <tr class="row-5"></tr>
-                    <tr class="row-6"></tr>
-                    <tr class="row-7"></tr>
-                    <tr class="row-8"></tr>
-                    <tr class="row-9"></tr>
-                    <tr class="row-10"></tr>
+                <tbody class="info-table__body">
+                    <tr id="row-1" class="info-table__row"></tr>
+                    <tr id="row-2" class="info-table__row"></tr>
+                    <tr id="row-3" class="info-table__row"></tr>
+                    <tr id="row-4" class="info-table__row"></tr>
+                    <tr id="row-5" class="info-table__row"></tr>
+                    <tr id="row-6" class="info-table__row"></tr>
+                    <tr id="row-7" class="info-table__row"></tr>
+                    <tr id="row-8" class="info-table__row"></tr>
+                    <tr id="row-9" class="info-table__row"></tr>
+                    <tr id="row-10" class="info-table__row"></tr>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4">
+                <tfoot class="info-table__foot">
+                    <tr class="info-table__foot-row">
+                        <td colspan="4" class="info-table__foot-cell">
                             <div class="page-controllers">
-                                <button type="button" class="page-controllers__back"><</button>
+                                <button type="button" title="go back" class="page-controllers__back"></button>
                                 <div class="page-controllers__pages"></div>
-                                <button type="button" class="page-controllers__forward">></button>
+                                <button type="button" title="go forward" class="page-controllers__forward"></button>
                             </div>
                         </td>
                     </tr>

@@ -1,6 +1,6 @@
 class Arrow {
-    constructor(elem) {
-        this.elem = elem;
+    constructor(elemHTML) {
+        this.elemHTML = elemHTML;
         this.currentPage = 1;
         this.pages = 0;
     }
@@ -14,17 +14,17 @@ class Arrow {
     }
 
     disable() {
-        this.elem.disabled = true;
+        this.elemHTML.disabled = true;
     }
 
     enable() {
-        this.elem.disabled = false;
+        this.elemHTML.disabled = false;
     }
 }
 
 class ArrowToFirs extends Arrow {
-    constructor(elem) {
-        super(elem);
+    constructor(elemHTML) {
+        super(elemHTML);
         this.pageToDisable = 1;
     }
 
@@ -36,8 +36,8 @@ class ArrowToFirs extends Arrow {
 }
 
 class ArrowToLast extends Arrow {
-    constructor(elem) {
-        super(elem);
+    constructor(elemHTML) {
+        super(elemHTML);
         this.pageToDisable = this.pages;
     }
 

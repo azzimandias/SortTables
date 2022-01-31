@@ -1,4 +1,4 @@
-class Table {
+export default class Table {
     constructor() {
         this.pages = 0;
         this.currentPage = 1;
@@ -10,8 +10,9 @@ class Table {
             .then(res => res.json())
             .then(res => {
                 this.responseJSON = res;
-                this.pages = this.responseJSON.length / 10;
+                this.pages = Math.ceil(this.responseJSON.length / 10);
                 this.data = this.reTyping();
+                this.checkLastPage();
                 this.sendThisToObservers();
             });
     }
@@ -35,6 +36,14 @@ class Table {
         return arr;
     }
 
+    checkLastPage() {
+        if (this.data[this.data.length - 1].length !== 10) {
+            while(this.data[this.data.length - 1].length < 10) {
+                this.data[this.data.length - 1].push([]);
+            }
+        }
+    }
+
     registerObservers(...args) {
         this.observers.push(...args);
         this.sendThisToObservers();
@@ -54,54 +63,3 @@ class Table {
         this.sendThisToObservers();
     }
 }
-
-class Fill {
-    constructor() {
-        this.stringArray = this.findStrings();
-        this.pageControllersElement = document.querySelector('.page-controllers__pages');
-    }
-
-    findStrings() {
-        const arr = [];
-        for (let i = 1; i <= 10; i++) {
-            arr.push(document.querySelector(`.row-${i}`))
-        }
-        return arr;
-    }
-
-    fillInTable(array, currentPage) {
-        for (let i = 0; i < this.stringArray.length; i++) {
-            let arr = array[currentPage - 1][i];
-            this.removeChildNodes(this.stringArray[i].childNodes);
-            arr.forEach( (item, index) => {
-                if (index === 2) {
-                    this.stringArray[i].innerHTML += (item) ? `<td class="about">
-                                                                <div class="about__body">
-                                                                    <p class="about__text">${item}</p>
-                                                                    <p class="about__ellipsis">...</p>
-                                                                </div>
-                                                               </td>` : `<td></td>`;
-                } else if (index === 3) {
-                    this.stringArray[i].innerHTML +=  (item) ? `<td style="background-color: ${item}"></td>` : `<td></td>`;
-                } else {
-                    this.stringArray[i].innerHTML += (item) ? `<td>${item}</td>` : `<td></td>`;
-                }
-            })
-            this.renderedPath = array[currentPage - 1];
-        }
-        this.pageControllersElement.innerHTML = `<div>${currentPage}</div>`;
-    }
-
-    removeChildNodes(children) {
-        children = Array.from(children);
-        children.forEach( item => {
-            item.remove();
-        })
-    }
-
-    getThis(context) {
-        if (context.data) this.fillInTable(context.data, context.currentPage);
-    }
-}
-
-export { Table, Fill };
