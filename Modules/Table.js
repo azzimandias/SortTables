@@ -1,11 +1,11 @@
-export default class Table {
+export default class Table { // Отвечает за работу с сервером и хранит в себе данные
     constructor() {
         this.pages = 0;
         this.currentPage = 1;
         this.observers = [];
     }
 
-    getDataFromServer() {
+    getDataFromServer() {                                                           // Получаем и преобразуем данные с сервера
         fetch('../data.json')
             .then(res => res.json())
             .then(res => {
@@ -17,7 +17,7 @@ export default class Table {
             });
     }
 
-    reTyping() {
+    reTyping() {    // Получаем только нужные данные, отбрасываем ненужные
         let resJSON = [...this.responseJSON];
         return this.splitPages(resJSON.map( item => {
             const arr = [];
@@ -26,7 +26,7 @@ export default class Table {
         }));
     }
 
-    splitPages(resJSON) {
+    splitPages(resJSON) {   // Делим информацию на страницы
         const arr = [];
         let x = this.responseJSON.length / 10;
         for (x; x > 0; x--) {
@@ -36,20 +36,20 @@ export default class Table {
         return arr;
     }
 
-    checkLastPage() {
-        if (this.data[this.data.length - 1].length !== 10) {
+    checkLastPage() {   // Проверяем последнюю страницу на количество 10 строк, дополняем необходимое кол-во, если нехватает
+        if (this.data[this.data.length - 1].length !== 10) {    // для корректного отображения страницы
             while(this.data[this.data.length - 1].length < 10) {
                 this.data[this.data.length - 1].push([]);
             }
         }
     }
 
-    registerObservers(...args) {
+    registerObservers(...args) {    // Сохраняем экземпляры классов наблюдателей
         this.observers.push(...args);
         this.sendThisToObservers();
     }
 
-    sendThisToObservers() {
+    sendThisToObservers() {     // Отправляем данные всем наблюядателям
         this.observers.forEach( elem => elem.getThis(this) );
     }
 

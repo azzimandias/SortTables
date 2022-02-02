@@ -1,5 +1,3 @@
-@import "veriables";
-
 body {
   box-sizing: border-box;
   font-size: 18px;
@@ -7,15 +5,27 @@ body {
   font-family: Roboto, serif;
 }
 
+.button {
+  cursor: pointer;
+  border: none;
+  &:hover, &:focus {
+    outline: 2px solid black;
+  }
+  &:active {
+    transition: .1s;
+    outline: 4px solid black;
+  }
+  &:disabled {
+    opacity: .5;
+    outline: none;
+  }
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 50vw 50vw;
   grid-auto-rows: max(100vh);
   max-height: 100vh;
-}
-
-.right-side {
-
 }
 
 /* Table */
@@ -45,24 +55,12 @@ body {
 }
 
   /* Table head */
-  .info-table__head {
-
-  }
-
-  .info-table__head-row {
-
-  }
-
   .info-table__header {
     min-height: 8%;
     height: 8vh;
     padding: 5px;
     transition: .3s;
     position: relative;
-  }
-
-  .header {
-
   }
 
   .header__text {
@@ -82,80 +80,22 @@ body {
   }
 
   .sort {
-    cursor: pointer;
     width: 30px;
     height: 30px;
-    border: none;
     border-radius: 50px;
     background: url("../../Img/sort.svg") no-repeat center;
     background-size: 35px 35px;
-    &:hover, &:focus {
-      outline: 2px solid black;
-    }
-    &:active {
-      transition: .1s;
-      outline: 4px solid black;
-    }
-    &:disabled {
-      opacity: .5;
-      outline: none;
-    }
   }
 
   .hider {
-    cursor: pointer;
     width: 30px;
     height: 30px;
-    border: none;
     border-radius: 50px;
     background: url("../../Img/unhide.svg") center/20px 20px no-repeat;
-    &:hover, &:focus {
-      outline: 2px solid black;
-    }
-    &:active {
-      transition: .1s;
-      outline: 4px solid black;
-    }
   }
   /* /Table head */
 
   /* Table body */
-  @keyframes appearance {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes disappearance {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-    }
-  }
-
-  .info-table__body {
-
-  }
-
-  .appearance {
-    animation: appearance .2s ease-in forwards;
-  }
-
-  .disappearance {
-    animation: disappearance .2s ease-in forwards;
-  }
-
-  .info-table__body-row {
-
-  }
-
   .info-table__cell {
     cursor: pointer;
     padding: 10px;
@@ -197,14 +137,6 @@ body {
   /* /Table body */
 
   /* Table foot */
-  .info-table__foot {
-
-  }
-
-  .info-table__foot-row {
-
-  }
-
   .info-table__foot-cell {
     padding: 5px;
     transition: .3s;
@@ -218,45 +150,19 @@ body {
   }
 
   .page-controllers__back {
-    cursor: pointer;
     width: 30px;
     height: 30px;
     margin-right: 5%;
-    border: none;
     border-radius: 50px;
     background: url("../../Img/stick-left.svg") no-repeat center;
-    &:hover, &:focus {
-      outline: 2px solid black;
-    }
-    &:active {
-      transition: .1s;
-      outline: 4px solid black;
-    }
-    &:disabled {
-      opacity: .5;
-      outline: none;
-    }
   }
 
   .page-controllers__forward {
-    cursor: pointer;
     width: 30px;
     height: 30px;
     margin-left: 5%;
-    border: none;
     border-radius: 50px;
     background: url("../../Img/stick-right.svg") no-repeat center;
-    &:hover, &:focus {
-      outline: 2px solid black;
-    }
-    &:active {
-      transition: .1s;
-      outline: 4px solid black;
-    }
-    &:disabled {
-      opacity: .5;
-      outline: none;
-    }
   }
   /* /Table foot */
 
@@ -275,7 +181,7 @@ body {
     }
   }
 
-  @keyframes unhide {
+  @keyframes unHide {
     from {
       min-width: 10%;
       width: 10%;
@@ -303,7 +209,7 @@ body {
     }
   }
 
-  @keyframes unhide-about {
+  @keyframes unHide-about {
     from {
       min-width: 10%;
       width: 10%;
@@ -326,11 +232,11 @@ body {
   }
 
   .maximize-column {
-    animation: unhide .3s ease-out forwards;
+    animation: unHide .3s ease-out forwards;
   }
 
   .maximize-column-about {
-    animation: unhide-about .3s ease-out forwards;
+    animation: unHide-about .3s ease-out forwards;
   }
 
   .selected {
@@ -374,6 +280,7 @@ body {
   /* /Table Modifiers  */
 /* /Table */
 
+/* Left side */
 .left-side {
   width: 100%;
   height: 100%;
@@ -385,6 +292,7 @@ body {
 }
 
 .left-side__body {
+  position: relative;
   background-color: lavender;
   border-radius: 20px;
   min-width: 50%;
@@ -401,115 +309,111 @@ body {
   }
 }
 
-.form__body {
-
-}
-
-.form {
-  display: none;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.input__label {
-  font-size: 25px;
-  display: none;
-  width: 100%;
-}
-
-.input {
-  font-size: 20px;
-  display: inherit;
-  text-align: center;
-  margin: 5% 0;
-  width: 100%;
-  line-height: 50px;
-  border: none;
-  border-radius: 30px;
-}
-
-.textarea__label {
-  font-size: 25px;
-  width: 100%;
-  display: none;
-  text-align: left;
-  flex-shrink: 1;
-}
-
-.textarea__body {
-  background-color: white;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  margin: 5% 0 10% 0;
-  padding: 20px;
-}
-
-.textarea {
-  border: none;
-  font-size: 20px;
-  width: 100%;
-  min-height: auto;
-  display: inherit;
-  resize: none;
-  outline: none;
-  scrollbar-width: thin;
-  scrollbar-color: lavender white;
-  &::-webkit-scrollbar {
-    width: 10px;
+  /* Form */
+  .form {
+    display: none;
   }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background-color: lavender;
+
+  .form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-}
+    /* Form input */
+    .form__input {
+      display: none;
+      width: 100%;
+    }
 
-.form__buttons {
-  width: 100%;
-}
+    .input__label {
+      font-size: 25px;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
 
-.apply {
-  font-size: 20px;
-  margin-right: 10%;
-  border-radius: 30px;
-  border: none;
-  padding: 10px 15px;
-  background-color: whitesmoke;
-  transition: .1s;
-  &:hover, &:focus {
-    outline: 2px solid black;
-  }
-  &:active {
-    outline: 4px solid black;
-  }
-}
+    .input {
+      display: block;
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      margin: 5% 0;
+      line-height: 50px;
+      border: none;
+      border-radius: 30px;
+    }
+    /* /Form input */
 
-.cancel {
-  font-size: 20px;
-  margin-left: 10%;
-  border-radius: 30px;
-  border: none;
-  padding: 10px 15px;
-  background-color: whitesmoke;
-  transition: .1s;
-  &:hover, &:focus  {
-    outline: 2px solid black;
-  }
-  &:active {
-    outline: 4px solid black;
-  }
-}
+    /* Form textarea */
+    .form__textarea {
+      display: none;
+      width: 100%;
+    }
 
-.visible {
-  display: block;
-}
+    .textarea__label {
+      display: block;
+      font-size: 25px;
+      width: 100%;
+      text-align: left;
+    }
 
-.hidee {
-  display: none;
-}
+    .textarea__body {
+      background-color: white;
+      border-radius: 20px;
+      margin: 5% 0;
+      padding: 20px;
+    }
 
+    .textarea {
+      border: none;
+      font-size: 20px;
+      width: 100%;
+      min-height: auto;
+      resize: none;
+      outline: none;
+      scrollbar-width: thin;
+      scrollbar-color: lavender white;
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: lavender;
+      }
+    }
+    /* /Form textarea */
+
+    /* Form buttons */
+    .apply {
+      width: 100%;
+      font-size: 20px;
+      border-radius: 20px;
+      padding: 10px 15px;
+      background-color: whitesmoke;
+      transition: .1s;
+    }
+
+    .cancel {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 20px;
+      border-radius: 30px;
+      padding: 10px 15px;
+      background-color: whitesmoke;
+      transition: .1s;
+    }
+    /* /Form buttons */
+
+    /* Form Modifiers */
+    .visible {
+      display: block;
+    }
+
+    .hided {
+      display: none;
+    }
+    /* /Form Modifiers */
+  /* /Form */
+/* /Left side */

@@ -1,4 +1,4 @@
-class Arrow {
+class Arrow {       // Отвечает за кнопки переключения страницы, за их отключение на первой и последней страницых
     constructor(elemHTML) {
         this.elemHTML = elemHTML;
         this.currentPage = 1;

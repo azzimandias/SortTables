@@ -1,122 +1,90 @@
-export default class Form {
+export default class Form {     // Отвечает за работу с формой
     constructor() {
         this.bait = document.querySelector('.bait');
         this.form = document.querySelector('.form');
-        this.input = document.querySelector('.input__label');
-        this.textarea = document.querySelector('.textarea__label');
+        this.input = document.querySelector('.form__input');
+        this.textarea = document.querySelector('.form__textarea');
     }
 
-    searchingCell(event, renderedPath, hideHash) {
-        if (event) {
-            let tbody = document.querySelector('tbody');
-            let tr = event.target.closest('tr')
-            this.selectedCell = event.target.closest('td')
-            let i = Array.from(tbody.children).indexOf(tr, 0);
-            let j = Array.from(tr.children).indexOf(this.selectedCell, 0);
-            this.selectedTableCell = {
-                row: i,
-                column: j,
-                data: renderedPath[i][j],
-            };
-            this.closeForm();
-            if (!hideHash[this.selectedTableCell.column] && this.selectedTableCell.data !== undefined) {
-                if (!this.selected) {
-                    this.selected = this.selectedCell;
-                    this.selected.classList.add('selected');
-                } else if (this.selected === this.selectedCell) {
-                    this.clearSelection();
-                } else {
-                    this.selected.classList.remove('selected');
-                    this.selected = this.selectedCell;
-                    this.selected.classList.add('selected');
-                }
-            } else this.clearSelection();
-        } else this.clearSelection();
-    }
-
-    actionChoiceForm(event, sortedArray) {
-        if (this.selectedTableCell && event.target.className === 'bait') {
-            this.openForm();
-        } else if (event.target.className === 'apply') {
-            this.acceptChanges(sortedArray);
-            this.clearSelection();
-            this.closeForm();
-        } else if (event.target.className === 'cancel') {
-            this.closeForm();
+    actionChoiceForm(event, sortedArray, pointer) {     // В зависимости от нажатого элемента выполнить действие
+        if (pointer && event.target.className.includes('bait')) {
+            this.openForm(pointer);
+        } else if (event.target.className.includes('apply')) {
+            this.saveChanges(sortedArray, pointer);
+            return this.closeForm();
+        } else if (event.target.className.includes('cancel')) {
+            return this.closeForm();
         }
     }
 
-    openForm() {
-        this.bait.classList.add('hidee');
+    openForm(pointer) {     // Отобразить форму на странице
+        this.bait.classList.add('hided');
         this.form.classList.add('visible');
-        if (this.selectedTableCell.column !== 2) {
+        if (pointer.column !== 2) {
             this.input.classList.add('visible');
-            this.input.control.type = 'text';
-            this.input.control.value = this.selectedTableCell.data;
-        } else {
+            this.input.children['input'].value = pointer.data;
+        } else {    // Для колонки about отобразить textarea
             this.textarea.classList.add('visible');
-            this.textarea.control.value = this.selectedTableCell.data;
+            this.textarea.querySelector('#textarea').value = pointer.data;
         }
     }
 
-    acceptChanges(sortedArray) {
+    saveChanges(sortedArray, pointer) {
+        const inputClName = this.input.className;
         if (sortedArray) {
-            sortedArray[this.currentPage - 1][this.selectedTableCell.row][this.selectedTableCell.column] =
-                (this.input.className.includes('visible')) ? this.input.control.value : this.textarea.control.value;
-            this.fillInCell(sortedArray[this.currentPage - 1][this.selectedTableCell.row][this.selectedTableCell.column]);
+            let sortedCell = (inputClName.includes('visible')) ? this.input.children['input'].value :
+                this.textarea.querySelector('#textarea').value;
+            sortedArray[this.currentPage][pointer.row][pointer.column] = sortedCell;
+            this.fillInCell(sortedCell, pointer);
         } else {
-            this.data[this.currentPage - 1][this.selectedTableCell.row][this.selectedTableCell.column] =
-                (this.input.className.includes('visible')) ? this.input.control.value : this.textarea.control.value;
-            this.fillInCell(this.data[this.currentPage - 1][this.selectedTableCell.row][this.selectedTableCell.column]);
+            let dataCell = (inputClName.includes('visible')) ? this.input.children['input'].value :
+                this.textarea.querySelector('#textarea').value;
+            this.data[this.currentPage][pointer.row][pointer.column] = dataCell;
+            this.fillInCell(dataCell, pointer);
         }
     }
 
-    fillInCell(cell) {
-        if (cell) {
-            if (this.selectedTableCell.column === 3) {
-                this.selectedCell.style.backgroundColor = `lavender`;
-                this.selectedCell.style.backgroundColor = `${cell}`;
-                this.selectedCell.innerHTML = ``;
-            } else if (this.selectedTableCell.column === 2) {
-                document.querySelectorAll('.about__text')[this.selectedTableCell.row].innerHTML = `${cell}`;
+    fillInCell(value, pointer) {    // Записать изменение в ячейку
+        const aboutText = document.querySelectorAll('.about__text');
+        if (value) {    // Отображение новых данных в ячейке
+            if (pointer.column === 3) {
+                pointer.elemHTML.style.backgroundColor = `lavender`;
+                pointer.elemHTML.style.backgroundColor = `${value}`;
+                pointer.elemHTML.innerHTML = ``;
+            } else if (pointer.column === 2) {
+                aboutText[pointer.row].innerHTML = `${value}`;
             } else {
-                this.selectedCell.innerHTML = `${cell}`;
-                this.selectedCell.classList.remove('blurred');
+                pointer.elemHTML.innerHTML = `${value}`;
+                pointer.elemHTML.classList.remove('blurred');
             }
-        } else {
-            if (this.selectedTableCell.column === 3) {
-                this.selectedCell.style.backgroundColor = `lavender`;
-                this.selectedCell.style.opacity = `.5`;
-                this.selectedCell.innerHTML = `There is no data`;
-            } else if (this.selectedTableCell.column === 2) {
-                this.selectedCell.innerHTML = `<td tabindex="0" class="info-table__cell blurred">
+        } else {    // Отображение пустой ячейки в зависимости от столбца
+            if (pointer.column === 3) {
+                pointer.elemHTML.style.backgroundColor = `lavender`;
+                pointer.elemHTML.style.opacity = `.5`;
+                pointer.elemHTML.innerHTML = `There is no data`;
+            } else if (pointer.column === 2) {
+                pointer.elemHTML.innerHTML = `<td tabindex="0" class="info-table__cell blurred">
                                                     <div class="about-blurred">
                                                         <p class="about__text-blurred">There is no data</p>
                                                     </div>
                                                 </td>`;
             } else {
-                this.selectedCell.innerHTML = `There is no data`;
+                pointer.elemHTML.innerHTML = `There is no data`;
             }
-            this.selectedCell.classList.add('blurred');
+            pointer.elemHTML.classList.add('blurred');
         }
     }
 
-    clearSelection() {
-        if (this.selected)  this.selected.classList.remove('selected');
-        if (this.selectedCell) this.selectedCell.blur();
-        this.selected = undefined;
-        this.selectedTableCell = undefined;
-    }
-
-    closeForm() {
-        this.bait.classList.remove('hidee');
+    closeForm() {       // Скрыть отображение формы на страницк
+        this.bait.classList.remove('hided');
         this.form.classList.remove('visible');
         this.input.classList.remove('visible');
         this.textarea.classList.remove('visible');
+        return 'closed';
     }
 
     getThis(context) {
         this.data = context.data;
-        this.currentPage = context.currentPage;
+        this.currentPage = context.currentPage - 1;
     }
 }

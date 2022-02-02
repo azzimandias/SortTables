@@ -1,4 +1,4 @@
-export default class ChooseAndSort {
+export default class ChooseAndSort {    // Отвечает за портировку данных по выбранному столбцу
     constructor() {
         this.currentColumn = -1;
         this.sortedArray = 0;
@@ -9,8 +9,8 @@ export default class ChooseAndSort {
             this.currentColumn = idx;
             this.goSortA_Z = true;
             event.target.title = 'sort from Z to A';
-            return this.chooseAction(data, idx);
-        } else {
+            return this.chooseAction(data, idx);    // рекурсия нужна при первом выполнении, чтобы заново запустить
+        } else {                                    // проверку для выбора метода сортировки
             if (this.goSortA_Z) {
                 this.goSortA_Z = false;
                 this.goSortZ_A = true;
@@ -28,7 +28,7 @@ export default class ChooseAndSort {
         }
     }
 
-    sortA_Z(data, idx) {
+    sortA_Z(data, idx) {    // Метод быстрой сортировки по алфавиту
         return this.splitPages(data, data.flat().sort((a, b) => {
             if (a[idx] > b[idx]) return 1;
             if (a[idx] === b[idx]) return 0;
@@ -36,7 +36,7 @@ export default class ChooseAndSort {
         }));
     }
 
-    sortZ_A(data, idx) {
+    sortZ_A(data, idx) {    // Метод быстрой сортировки в противоположном порядке
         return this.splitPages(data, data.flat().sort((a, b) => {
             if (a[idx] < b[idx]) return 1;
             if (a[idx] === b[idx]) return 0;
@@ -44,7 +44,7 @@ export default class ChooseAndSort {
         }));
     }
 
-    splitPages(data, sort) {
+    splitPages(data, sort) {    // Заново создает постраничную вложенность, т к она теряется при сортировке
         const arr = [];
         let x = data.flat().length / 10;
         for (x; x > 0; x--) {

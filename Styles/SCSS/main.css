@@ -5,6 +5,22 @@ body {
   font-family: Roboto, serif;
 }
 
+.button {
+  cursor: pointer;
+  border: none;
+}
+.button:hover, .button:focus {
+  outline: 2px solid black;
+}
+.button:active {
+  transition: 0.1s;
+  outline: 4px solid black;
+}
+.button:disabled {
+  opacity: 0.5;
+  outline: none;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 50vw 50vw;
@@ -64,68 +80,22 @@ body {
 }
 
 .sort {
-  cursor: pointer;
   width: 30px;
   height: 30px;
-  border: none;
   border-radius: 50px;
   background: url("../../Img/sort.svg") no-repeat center;
   background-size: 35px 35px;
 }
-.sort:hover, .sort:focus {
-  outline: 2px solid black;
-}
-.sort:active {
-  transition: 0.1s;
-  outline: 4px solid black;
-}
-.sort:disabled {
-  opacity: 0.5;
-  outline: none;
-}
 
 .hider {
-  cursor: pointer;
   width: 30px;
   height: 30px;
-  border: none;
   border-radius: 50px;
   background: url("../../Img/unhide.svg") center/20px 20px no-repeat;
-}
-.hider:hover, .hider:focus {
-  outline: 2px solid black;
-}
-.hider:active {
-  transition: 0.1s;
-  outline: 4px solid black;
 }
 
 /* /Table head */
 /* Table body */
-@keyframes appearance {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes disappearance {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-.appearance {
-  animation: appearance 0.2s ease-in forwards;
-}
-
-.disappearance {
-  animation: disappearance 0.2s ease-in forwards;
-}
-
 .info-table__cell {
   cursor: pointer;
   padding: 10px;
@@ -180,45 +150,19 @@ body {
 }
 
 .page-controllers__back {
-  cursor: pointer;
   width: 30px;
   height: 30px;
   margin-right: 5%;
-  border: none;
   border-radius: 50px;
   background: url("../../Img/stick-left.svg") no-repeat center;
 }
-.page-controllers__back:hover, .page-controllers__back:focus {
-  outline: 2px solid black;
-}
-.page-controllers__back:active {
-  transition: 0.1s;
-  outline: 4px solid black;
-}
-.page-controllers__back:disabled {
-  opacity: 0.5;
-  outline: none;
-}
 
 .page-controllers__forward {
-  cursor: pointer;
   width: 30px;
   height: 30px;
   margin-left: 5%;
-  border: none;
   border-radius: 50px;
   background: url("../../Img/stick-right.svg") no-repeat center;
-}
-.page-controllers__forward:hover, .page-controllers__forward:focus {
-  outline: 2px solid black;
-}
-.page-controllers__forward:active {
-  transition: 0.1s;
-  outline: 4px solid black;
-}
-.page-controllers__forward:disabled {
-  opacity: 0.5;
-  outline: none;
 }
 
 /* /Table foot */
@@ -235,7 +179,7 @@ body {
     opacity: 0;
   }
 }
-@keyframes unhide {
+@keyframes unHide {
   from {
     min-width: 10%;
     width: 10%;
@@ -259,7 +203,7 @@ body {
     opacity: 0;
   }
 }
-@keyframes unhide-about {
+@keyframes unHide-about {
   from {
     min-width: 10%;
     width: 10%;
@@ -280,11 +224,11 @@ body {
 }
 
 .maximize-column {
-  animation: unhide 0.3s ease-out forwards;
+  animation: unHide 0.3s ease-out forwards;
 }
 
 .maximize-column-about {
-  animation: unhide-about 0.3s ease-out forwards;
+  animation: unHide-about 0.3s ease-out forwards;
 }
 
 .selected {
@@ -328,6 +272,7 @@ body {
 
 /* /Table Modifiers  */
 /* /Table */
+/* Left side */
 .left-side {
   width: 100%;
   height: 100%;
@@ -339,6 +284,7 @@ body {
 }
 
 .left-side__body {
+  position: relative;
   background-color: lavender;
   border-radius: 20px;
   min-width: 50%;
@@ -355,48 +301,60 @@ body {
   outline: 4px solid black;
 }
 
+/* Form */
 .form {
   display: none;
 }
 
-.container {
+.form__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.input__label {
-  font-size: 25px;
+/* Form input */
+.form__input {
   display: none;
   width: 100%;
 }
 
+.input__label {
+  font-size: 25px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
 .input {
+  display: block;
+  width: 100%;
   font-size: 20px;
-  display: inherit;
   text-align: center;
   margin: 5% 0;
-  width: 100%;
   line-height: 50px;
   border: none;
   border-radius: 30px;
 }
 
+/* /Form input */
+/* Form textarea */
+.form__textarea {
+  display: none;
+  width: 100%;
+}
+
 .textarea__label {
+  display: block;
   font-size: 25px;
   width: 100%;
-  display: none;
   text-align: left;
-  flex-shrink: 1;
 }
 
 .textarea__body {
   background-color: white;
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  margin: 5% 0 10% 0;
+  margin: 5% 0;
   padding: 20px;
 }
 
@@ -405,7 +363,6 @@ body {
   font-size: 20px;
   width: 100%;
   min-height: auto;
-  display: inherit;
   resize: none;
   outline: none;
   scrollbar-width: thin;
@@ -419,48 +376,40 @@ body {
   background-color: lavender;
 }
 
-.form__buttons {
-  width: 100%;
-}
-
+/* /Form textarea */
+/* Form buttons */
 .apply {
+  width: 100%;
   font-size: 20px;
-  margin-right: 10%;
-  border-radius: 30px;
-  border: none;
+  border-radius: 20px;
   padding: 10px 15px;
   background-color: whitesmoke;
   transition: 0.1s;
-}
-.apply:hover, .apply:focus {
-  outline: 2px solid black;
-}
-.apply:active {
-  outline: 4px solid black;
 }
 
 .cancel {
+  position: absolute;
+  top: 20px;
+  right: 30px;
   font-size: 20px;
-  margin-left: 10%;
   border-radius: 30px;
-  border: none;
   padding: 10px 15px;
   background-color: whitesmoke;
   transition: 0.1s;
 }
-.cancel:hover, .cancel:focus {
-  outline: 2px solid black;
-}
-.cancel:active {
-  outline: 4px solid black;
-}
 
+/* /Form buttons */
+/* Form Modifiers */
 .visible {
   display: block;
 }
 
-.hidee {
+.hided {
   display: none;
 }
+
+/* /Form Modifiers */
+/* /Form */
+/* /Left side */
 
 /*# sourceMappingURL=main.css.map */
