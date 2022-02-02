@@ -1,5 +1,6 @@
 body {
   box-sizing: border-box;
+  margin: 0;
   font-size: 18px;
   line-height: 20px;
   font-family: Roboto, serif;
@@ -40,18 +41,18 @@ body {
 }
 
 .info-table__columns {
-  min-width: 20%;
-  width: 20%;
+  min-width: 20%; /* firefox */
+  width: 20%; /* safari, chrome, edge */
 }
 
 .column {
-  min-width: 20%;
-  width: 20%;
+  min-width: 20%; /* firefox */
+  width: 20%; /* safari, chrome, edge */
 }
 
 .column-about {
-  min-width: 40%;
-  width: 40%;
+  min-width: 40%; /* firefox */
+  width: 40%; /* safari, chrome, edge */
 }
 
   /* Table head */
@@ -114,7 +115,7 @@ body {
   }
 
   .about {
-    display: inline-flex;
+    display: flex;
     font-size: inherit;
     line-height: inherit;
     text-align: justify;
@@ -372,8 +373,10 @@ body {
       min-height: auto;
       resize: none;
       outline: none;
+      /* firefox */
       scrollbar-width: thin;
       scrollbar-color: lavender white;
+      /* safari, chrome, edge */
       &::-webkit-scrollbar {
         width: 10px;
       }

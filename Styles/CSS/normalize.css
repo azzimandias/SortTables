@@ -8,10 +8,10 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-}
+/*html {
+    line-height: 1.15; !* 1 *!
+    -webkit-text-size-adjust: 100%; !* 2 *!
+}*/
 
 /* Sections
    ========================================================================== */
@@ -317,17 +317,19 @@ textarea {
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
 
+/*
 details {
     display: block;
 }
+*/
 
 /*
  * Add the correct display in all browsers.
  */
 
-summary {
+/*summary {
     display: list-item;
-}
+}*/
 
 /* Misc
    ========================================================================== */
@@ -336,14 +338,16 @@ summary {
  * Add the correct display in IE 10+.
  */
 
-template {
+/*template {
     display: none;
-}
+}*/
 
 /**
  * Add the correct display in IE 10.
  */
 
+/*
 [hidden] {
     display: none;
 }
+*/

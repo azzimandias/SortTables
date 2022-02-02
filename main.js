@@ -63,6 +63,7 @@ document.querySelector('.info-table__head').addEventListener('click', event => {
 });
 
 document.querySelector('.left-side').addEventListener('click', event => {
+    event.preventDefault();         // Отключем перезагрузку страницы
     if (form.actionChoiceForm(event, sort.sortedArray, pointer.pointer))                                    // Реакция на закрытие или заполнение формы
         pointer.clearSelection();
 });

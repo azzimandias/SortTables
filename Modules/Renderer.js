@@ -45,9 +45,9 @@ export default class Renderer {     // Отвечает за отрисовку 
         this.noDataCell(rowIdx, columnIdx, hideHash, true);
     }
 
-    noDataCell(rowIdx, columnIdx, hideHash, replace) {
-        let noDataCell = ``;
-        if (columnIdx === 2) noDataCell = (replace && hideHash[columnIdx]) ? this.hidedAbout :
+    noDataCell(rowIdx, columnIdx, hideHash, replace) {                                                          // В зависимости от столбца вставляет разные виды ячеек
+        let noDataCell = ``;                                                                                    // чтобы не нарушать уже примененные пользователем стили, например
+        if (columnIdx === 2) noDataCell = (replace && hideHash[columnIdx]) ? this.hidedAbout :                  // в скрытый столбец нужно вставить такую же скрытую ячейку
             (replace) ? this.about : (hideHash[columnIdx]) ? this.hidedNoDataAbout : this.noDataAbout;
         else if (columnIdx === 3) {
             console.log(replace && hideHash[columnIdx])
@@ -96,7 +96,7 @@ export default class Renderer {     // Отвечает за отрисовку 
         }
     }
 
-    removeEmptyRow(row, hideHash) {     // Необходима для удаления строки с только пустыми ячейками
+    removeEmptyRow(row, hideHash) {     // Необходима для очищения строки от пустых ячеек
         row.classList.remove('empty');
         this.removeChildNodes(row.childNodes);
         this.saveHTML();
