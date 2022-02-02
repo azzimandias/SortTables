@@ -1,5 +1,5 @@
-import Table from "./Modules/Table.js";
-import Renderer from "./Modules/Renderer.js";
+import Table from "./Modules/Table.js";                                                                     // Разработка велась в WebStorm и запускался со встренным локальным сервером
+import Renderer from "./Modules/Renderer.js";                                                               // Так же без ошибок работет в VS code - Live Server
 import Fill from "./Modules/Fill.js"
 import { ArrowToFirs, ArrowToLast} from "./Modules/Arrows.js";
 import ChooseAndSort from "./Modules/Sort.js";
