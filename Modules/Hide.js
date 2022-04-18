@@ -23,7 +23,7 @@ export default class Hide extends Fill {    // Отвечает за устан�
         if (+idx !== 2) this.column.classList.add('minimize-column');
         else this.column.classList.add('minimize-column-about');
         this.sortButton.disabled = true;    // Убираем возможность сортировки данного столбца
-        event.target.style.background = 'url("../../Img/hide.svg") center/20px 20px no-repeat';     // изменение иконки кнопки
+        event.target.style.background = 'url("../../SortTables/Img/hide.svg") center/20px 20px no-repeat';     // изменение иконки кнопки, для разработки нужно менять путь к файлу
         event.target.title = 'show column';
         this.abouts = document.querySelectorAll('.about__text, .about__text-blurred');
         this.rowArray.forEach( (item, index) => {
@@ -39,7 +39,7 @@ export default class Hide extends Fill {    // Отвечает за устан�
         if (+idx !== 2) this.column.classList.add('maximize-column');
         else this.column.classList.add('maximize-column-about');
         this.sortButton.disabled = false;   // Возвращаем возможность сортировки
-        event.target.style.background = 'url("../../Img/unhide.svg") center/20px 20px no-repeat';   // изменение иконки кнопки
+        event.target.style.background = 'url("../../SortTables/Img/unhide.svg") center/20px 20px no-repeat';   // изменение иконки кнопки, для разработки нужно менять путь к файлу
         event.target.title = 'hide column';
         this.abouts = document.querySelectorAll('.about__text, .about__text-blurred');
         setTimeout( () => {     // Применение после проигрывания анимаций

@@ -5,8 +5,8 @@ export default class Table { // Отвечает за работу с серве
         this.observers = [];
     }
 
-    getDataFromServer() {                                                           // Получаем и преобразуем данные с сервера
-        fetch('../SortTables/data.json')
+    getDataFromServer() {                      // Получаем и преобразуем данные с сервера
+        fetch('../SortTables/data.json') // Для разработки нужно менять путь к файлу
             .then(res => res.json())
             .then(res => {
                 this.responseJSON = res;
