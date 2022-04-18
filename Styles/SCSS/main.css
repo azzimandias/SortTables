@@ -303,6 +303,7 @@ body {
 .bait {
   margin: 0;
   cursor: pointer;
+  border-radius: 5px;
 }
 .bait:focus {
   outline: 4px solid black;
@@ -372,6 +373,7 @@ body {
   min-height: auto;
   resize: none;
   outline: none;
+  font-family: inherit;
   /* firefox */
   scrollbar-width: thin;
   scrollbar-color: lavender white;
