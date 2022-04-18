@@ -4,9 +4,9 @@
   "description": "",
   "main": "express.js",
   "scripts": {
-    "dev": "nodemon express.js",
-    "start": "node express.js",
-    "deploy": "node NodeScripts/gh-pages-deploy.js"
+    "dev": "nodemon src/express.js",
+    "start": "node src/express.js",
+    "deploy": "node src/NodeScripts/gh-pages-deploy.js"
   },
   "repository": {
     "type": "git",
