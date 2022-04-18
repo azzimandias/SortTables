@@ -2,10 +2,10 @@
   "name": "sorttables",
   "version": "1.0.0",
   "description": "",
-  "main": "Express.js",
+  "main": "express.js",
   "scripts": {
-    "dev": "nodemon Express.js",
-    "start": "node Express.js",
+    "dev": "nodemon express.js",
+    "start": "node express.js",
     "deploy": "node NodeScripts/gh-pages-deploy.js"
   },
   "repository": {
@@ -20,10 +20,10 @@
   "homepage": "https://github.com/azzimandias/SortTables#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "express-handlebars": "^6.0.5",
-    "nodemon": "^2.0.15"
+    "express-handlebars": "^6.0.5"
   },
   "devDependencies": {
-    "execa": "^5.1.1"
+    "execa": "^5.1.1",
+    "nodemon": "^2.0.15"
   }
 }
