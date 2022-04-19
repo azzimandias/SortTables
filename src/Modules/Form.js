@@ -1,6 +1,6 @@
 export default class Form {     // Отвечает за работу с формой
     constructor() {
-        this.bait = document.querySelector('.bait');
+        this.leftside__body = document.querySelector('.left-side__body');
         this.form = document.querySelector('.form');
         this.input = document.querySelector('.form__input');
         this.textarea = document.querySelector('.form__textarea');
@@ -18,7 +18,7 @@ export default class Form {     // Отвечает за работу с фор�
     }
 
     openForm(pointer) {     // Отобразить форму на странице
-        this.bait.classList.add('hided');
+        this.leftside__body.classList.add('hided');
         this.form.classList.add('visible');
         if (pointer.column !== 2) {
             this.input.classList.add('visible');
@@ -76,7 +76,7 @@ export default class Form {     // Отвечает за работу с фор�
     }
 
     closeForm() {       // Скрыть отображение формы на страницк
-        this.bait.classList.remove('hided');
+        this.leftside__body.classList.remove('hided');
         this.form.classList.remove('visible');
         this.input.classList.remove('visible');
         this.textarea.classList.remove('visible');
