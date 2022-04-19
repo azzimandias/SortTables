@@ -1,0 +1,29 @@
+{
+  "name": "sorttables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "dev": "nodemon src/express.js",
+    "start": "node src/express.js",
+    "deploy": "node src/NodeScripts/gh-pages-deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azzimandias/SortTables.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azzimandias/SortTables/issues"
+  },
+  "homepage": "https://github.com/azzimandias/SortTables#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.5"
+  },
+  "devDependencies": {
+    "execa": "^5.1.1",
+    "nodemon": "^2.0.15"
+  }
+}
