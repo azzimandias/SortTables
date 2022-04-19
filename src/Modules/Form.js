@@ -1,13 +1,13 @@
 export default class Form {     // Отвечает за работу с формой
     constructor() {
-        this.leftside__body = document.querySelector('.left-side__body');
+        this.bait = document.querySelector('.bait');
         this.form = document.querySelector('.form');
         this.input = document.querySelector('.form__input');
         this.textarea = document.querySelector('.form__textarea');
     }
 
     actionChoiceForm(event, sortedArray, pointer) {     // В зависимости от нажатого элемента выполнить действие
-        if (pointer && event.target.className.includes('left-side__body')) {
+        if (pointer && event.target.className.includes('bait')) {
             this.openForm(pointer);
         } else if (event.target.className.includes('apply')) {
             this.saveChanges(sortedArray, pointer);
@@ -18,7 +18,7 @@ export default class Form {     // Отвечает за работу с фор�
     }
 
     openForm(pointer) {     // Отобразить форму на странице
-        this.leftside__body.classList.add('hided');
+        this.bait.classList.add('hided');
         this.form.classList.add('visible');
         if (pointer.column !== 2) {
             this.input.classList.add('visible');
@@ -76,7 +76,7 @@ export default class Form {     // Отвечает за работу с фор�
     }
 
     closeForm() {       // Скрыть отображение формы на страницк
-        this.leftside__body.classList.remove('hided');
+        this.bait.classList.remove('hided');
         this.form.classList.remove('visible');
         this.input.classList.remove('visible');
         this.textarea.classList.remove('visible');
