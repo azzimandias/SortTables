@@ -299,6 +299,9 @@ body {
   max-height: 90%;
   padding: 30px;
 }
+.left-side__body:focus {
+  outline: 4px solid black;
+}
 
 .bait {
   margin: 0;

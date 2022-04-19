@@ -300,6 +300,9 @@ body {
   max-width: 90%;
   max-height: 90%;
   padding: 30px;
+  &:active {
+    outline: 4px solid black;
+  }
 }
 
 .bait {
@@ -307,7 +310,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   &:focus {
-    outline: 4px solid black;
+    //outline: 4px solid black;
   }
 }
 

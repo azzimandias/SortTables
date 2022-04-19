@@ -67,7 +67,7 @@ document.querySelector('.left-side').addEventListener('click', event => {
     if (form.actionChoiceForm(event, sort.sortedArray, pointer.pointer))                                    // Реакция на закрытие или заполнение формы
         pointer.clearSelection();
 });
-document.querySelector('.bait').addEventListener('keypress', event => {
+document.querySelector('.left-side__body').addEventListener('keypress', event => {
     if (event.key === 'Enter') {                                                                            // Открыть форму при нажатии клавиши Enter
         if (form.actionChoiceForm(event, sort.sortedArray, pointer.pointer))
             pointer.clearSelection();
