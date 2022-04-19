@@ -7,7 +7,7 @@ export default class Form {     // Отвечает за работу с фор�
     }
 
     actionChoiceForm(event, sortedArray, pointer) {     // В зависимости от нажатого элемента выполнить действие
-        if (pointer && event.target.className.includes('bait')) {
+        if (pointer && event.target.className.includes('left-side__body')) {
             this.openForm(pointer);
         } else if (event.target.className.includes('apply')) {
             this.saveChanges(sortedArray, pointer);

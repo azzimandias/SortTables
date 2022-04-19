@@ -309,9 +309,9 @@ body {
   border-radius: 5px;
 }
 .bait:focus {
-  outline: 4px solid black;
+  /*outline: 4px solid black;*/
 }
-
+left-side__body
 /* Form */
 .form {
   display: none;
